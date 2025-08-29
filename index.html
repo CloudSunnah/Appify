@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web to App Converter - Ubah Website Anda menjadi Aplikasi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-80 backdrop-blur-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold flex items-center">
+                <i data-lucide="box" class="w-7 h-7 mr-2 text-indigo-400"></i>
+                Appify
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#features" class="hover:text-indigo-400 transition-colors">Fitur</a>
+                <a href="#process" class="hover:text-indigo-400 transition-colors">Cara Kerja</a>
+                <a href="#download" class="hover:text-indigo-400 transition-colors">Download</a>
+            </nav>
+            <a href="#start" class="bg-indigo-600 hover:bg-indigo-700 transition-all text-white font-semibold py-2 px-5 rounded-lg">
+                Mulai Sekarang
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="start" class="pt-32 pb-20 gradient-bg">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">Ubah Situs Web Anda menjadi Aplikasi Android & iOS</h1>
+                <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8">Hanya dalam beberapa klik, konversi website atau kode HTML Anda menjadi aplikasi mobile profesional dengan fitur lengkap.</p>
+                
+                <div id="converter-form" class="max-w-2xl mx-auto">
+                    <div class="glass-card rounded-xl p-4 md:p-6 shadow-2xl">
+                        <form id="url-form" class="flex flex-col md:flex-row gap-4">
+                            <input type="url" id="website-url" placeholder="Masukkan URL website Anda..." class="w-full bg-gray-800 text-white placeholder-gray-400 border border-gray-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all" required>
+                            <button type="submit" class="w-full md:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg flex items-center justify-center transition-all duration-300 transform hover:scale-105">
+                                <span id="button-text">Buat Aplikasi</span>
+                                <div id="loader" class="hidden w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin ml-2"></div>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="success-message" class="hidden text-center max-w-2xl mx-auto mt-8 glass-card rounded-xl p-8">
+                    <h3 class="text-2xl font-bold mb-4">Luar biasa! Aplikasi Anda sedang disiapkan.</h3>
+                    <p class="text-gray-200 mb-6">Kami telah menerima permintaan Anda. Aplikasi Anda akan siap dalam beberapa saat. Anda dapat menyesuaikan dan mengunduh file dari dasbor Anda.</p>
+                    <a href="#download" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg transition-all">
+                        Lihat Opsi Download
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="py-20 bg-gray-800">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-2">3 Langkah Mudah</h2>
+                <p class="text-gray-400 mb-12 max-w-2xl mx-auto">Proses cepat dan intuitif untuk mengubah ide Anda menjadi aplikasi nyata.</p>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="flex flex-col items-center">
+                        <div class="bg-indigo-500/20 p-6 rounded-full mb-4">
+                            <i data-lucide="link" class="w-10 h-10 text-indigo-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">1. Masukkan URL</h3>
+                        <p class="text-gray-400">Cukup tempelkan link website atau blog Anda untuk memulai proses konversi.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="bg-indigo-500/20 p-6 rounded-full mb-4">
+                             <i data-lucide="settings-2" class="w-10 h-10 text-indigo-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">2. Kustomisasi</h3>
+                        <p class="text-gray-400">Sesuaikan ikon, nama, splash screen, dan berbagai fitur lainnya sesuai brand Anda.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="bg-indigo-500/20 p-6 rounded-full mb-4">
+                           <i data-lucide="download-cloud" class="w-10 h-10 text-indigo-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">3. Build & Download</h3>
+                        <p class="text-gray-400">Buat aplikasi Anda dan unduh file APK, AAB, dan iOS yang siap untuk dipublikasikan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-extrabold">Fitur Lengkap untuk Aplikasi Anda</h2>
+                    <p class="text-lg text-gray-400 mt-4 max-w-3xl mx-auto">Kami menyediakan semua yang Anda butuhkan untuk membuat, mengelola, dan memonetisasi aplikasi Anda.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature Items -->
+                    <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-indigo-500 hover:scale-105 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="paintbrush" class="w-8 h-8 text-indigo-400 mr-4"></i>
+                            <h3 class="text-xl font-semibold">App Customization</h3>
+                        </div>
+                        <p class="text-gray-400">Ubah tampilan aplikasi, ikon, skema warna, dan tata letak agar sesuai dengan identitas merek Anda.</p>
+                    </div>
+                     <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-indigo-500 hover:scale-105 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="dollar-sign" class="w-8 h-8 text-indigo-400 mr-4"></i>
+                            <h3 class="text-xl font-semibold">App Monetization</h3>
+                        </div>
+                        <p class="text-gray-400">Integrasikan iklan dengan mudah atau tawarkan pembelian dalam aplikasi untuk menghasilkan pendapatan.</p>
+                    </div>
+                     <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-indigo-500 hover:scale-105 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="star" class="w-8 h-8 text-indigo-400 mr-4"></i>
+                            <h3 class="text-xl font-semibold">Review Reminders</h3>
+                        </div>
+                        <p class="text-gray-400">Dorong pengguna untuk memberikan ulasan positif di Play Store & App Store secara otomatis.</p>
+                    </div>
+                     <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-indigo-500 hover:scale-105 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="bell" class="w-8 h-8 text-indigo-400 mr-4"></i>
+                            <h3 class="text-xl font-semibold">Push Notifications</h3>
+                        </div>
+                        <p class="text-gray-400">Kirim notifikasi tanpa batas untuk berinteraksi kembali dengan pengguna Anda secara efektif.</p>
+                    </div>
+                     <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-indigo-500 hover:scale-105 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="database-backup" class="w-8 h-8 text-indigo-400 mr-4"></i>
+                            <h3 class="text-xl font-semibold">App Backups</h3>
+                        </div>
+                        <p class="text-gray-400">Cadangkan konfigurasi dan data aplikasi Anda dengan aman di cloud kami.</p>
+                    </div>
+                     <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-indigo-500 hover:scale-105 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="infinity" class="w-8 h-8 text-indigo-400 mr-4"></i>
+                            <h3 class="text-xl font-semibold">Unlimited Apps</h3>
+                        </div>
+                        <p class="text-gray-400">Buat aplikasi sebanyak yang Anda butuhkan tanpa batasan dalam satu akun.</p>
+                    </div>
+                     <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-indigo-500 hover:scale-105 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="bar-chart-2" class="w-8 h-8 text-indigo-400 mr-4"></i>
+                            <h3 class="text-xl font-semibold">Deep Analytics (Firebase)</h3>
+                        </div>
+                        <p class="text-gray-400">Dapatkan wawasan mendalam tentang perilaku pengguna dengan integrasi Google Firebase.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-indigo-500 hover:scale-105 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="shield-check" class="w-8 h-8 text-indigo-400 mr-4"></i>
+                            <h3 class="text-xl font-semibold">Anti-Spam for Google Play</h3>
+                        </div>
+                        <p class="text-gray-400">Perlindungan bawaan untuk memastikan aplikasi Anda mematuhi kebijakan Google Play.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-indigo-500 hover:scale-105 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="gem" class="w-8 h-8 text-indigo-400 mr-4"></i>
+                            <h3 class="text-xl font-semibold">Custom Branding</h3>
+                        </div>
+                        <p class="text-gray-400">Tampilkan merek Anda secara penuh tanpa ada branding dari kami di aplikasi Anda.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-indigo-500 hover:scale-105 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="ad-circle" class="w-8 h-8 text-indigo-400 mr-4" style="stroke: currentColor; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2px;"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="12" x2="16" y2="12"></line><line x1="12" y1="8" x2="12" y2="16"></line><path d="M16 12l-4 4-4-4"></path></i>
+                            <h3 class="text-xl font-semibold">No Ads Option</h3>
+                        </div>
+                        <p class="text-gray-400">Pilih untuk membuat aplikasi bebas iklan untuk memberikan pengalaman premium kepada pengguna.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-indigo-500 hover:scale-105 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="image" class="w-8 h-8 text-indigo-400 mr-4"></i>
+                            <h3 class="text-xl font-semibold">Custom Logo on Launch</h3>
+                        </div>
+                        <p class="text-gray-400">Tampilkan logo kustom Anda pada layar pembuka (splash screen) saat aplikasi dimulai.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="py-20 bg-gray-800">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-4">Siap untuk Dipublikasikan</h2>
+                <p class="text-gray-400 mb-12 max-w-2xl mx-auto">Kami menyediakan semua format file yang Anda perlukan untuk mendistribusikan aplikasi Anda ke seluruh dunia.</p>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-10">
+                    <!-- Android Card -->
+                    <div class="w-full md:w-1/3 bg-gray-900 p-8 rounded-xl border border-gray-700">
+                        <img src="https://placehold.co/100x100/764ba2/FFFFFF?text=Android" alt="Android Logo" class="mx-auto mb-4 rounded-full" onerror="this.onerror=null;this.src='https://placehold.co/100x100/764ba2/FFFFFF?text=Android';">
+                        <h3 class="text-2xl font-semibold mb-4">Android</h3>
+                        <p class="text-gray-400 mb-6">Unduh file untuk dipublikasikan di Google Play Store atau didistribusikan secara langsung.</p>
+                        <div class="space-y-3 text-left">
+                            <div class="bg-gray-800 p-3 rounded-lg flex items-center justify-between">
+                                <span class="font-medium">File APK</span>
+                                <a href="#" class="text-indigo-400 hover:text-indigo-300 font-semibold">Download</a>
+                            </div>
+                            <div class="bg-gray-800 p-3 rounded-lg flex items-center justify-between">
+                                <span class="font-medium">File AAB</span>
+                                <a href="#" class="text-indigo-400 hover:text-indigo-300 font-semibold">Download</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- iOS Card -->
+                     <div class="w-full md:w-1/3 bg-gray-900 p-8 rounded-xl border border-gray-700">
+                        <img src="https://placehold.co/100x100/667eea/FFFFFF?text=iOS" alt="iOS Logo" class="mx-auto mb-4 rounded-full" onerror="this.onerror=null;this.src='https://placehold.co/100x100/667eea/FFFFFF?text=iOS';">
+                        <h3 class="text-2xl font-semibold mb-4">iOS</h3>
+                        <p class="text-gray-400 mb-6">Dapatkan file yang diperlukan untuk mengirimkan aplikasi Anda ke Apple App Store.</p>
+                        <div class="space-y-3 text-left">
+                           <div class="bg-gray-800 p-3 rounded-lg flex items-center justify-between">
+                                <span class="font-medium">File IPA</span>
+                                <a href="#" class="text-indigo-400 hover:text-indigo-300 font-semibold">Download</a>
+                            </div>
+                           <div class="bg-gray-800 p-3 rounded-lg flex items-center justify-between">
+                                <span class="font-medium">Kode Sumber</span>
+                                <a href="#" class="text-indigo-400 hover:text-indigo-300 font-semibold">Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <p>&copy; 2025 Appify. Semua Hak Cipta Dilindungi.</p>
+            <p class="text-sm mt-2">Ubah website menjadi aplikasi dengan mudah.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize lucide icons
+        lucide.createIcons();
+
+        // Form submission simulation
+        const urlForm = document.getElementById('url-form');
+        const converterForm = document.getElementById('converter-form');
+        const successMessage = document.getElementById('success-message');
+        const loader = document.getElementById('loader');
+        const buttonText = document.getElementById('button-text');
+        const websiteUrlInput = document.getElementById('website-url');
+
+        urlForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Basic URL validation
+            if (!websiteUrlInput.value || !websiteUrlInput.checkValidity()) {
+                 alert("Silakan masukkan URL website yang valid.");
+                 return;
+            }
+
+            // Show loader
+            loader.classList.remove('hidden');
+            buttonText.textContent = 'Memproses...';
+            urlForm.querySelector('button').disabled = true;
+
+            // Simulate API call
+            setTimeout(() => {
+                converterForm.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+            }, 2000);
+        });
+
+    </script>
+</body>
+</html>

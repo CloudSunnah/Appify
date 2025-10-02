@@ -9308,7 +9308,7 @@
                 return `
                     <div class="p-4 sm:p-6 space-y-6">
                         <div class="relative flex justify-between items-center">
-                            <h2 class="text-xl font-bold text-slate-800 dark:text-white">Hubungi kami di</h2>
+                            <h2 class="text-xl font-bold text-slate-800 dark:text-white">Pengaturan</h2>
                             
                             <button id="toggle-contact-menu-btn" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
                                 ${icons.MoreVertical("w-6 h-6 text-slate-600 dark:text-slate-300")}
@@ -9316,9 +9316,10 @@
 
                             <div id="contact-menu" class="hidden absolute top-full right-0 mt-2 w-64 bg-white dark:bg-slate-700 rounded-lg shadow-xl border dark:border-slate-600 z-10">
                                 <div class="p-2">
-                                    <a href="https://wa.me/6285648545159" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 w-full px-3 py-2 text-sm text-slate-700 dark:text-slate-200 rounded-md hover:bg-slate-100 dark:hover:bg-slate-600">
+                                    <a id="whatsapp-btn" class="flex items-center gap-3 w-full px-3 py-2 text-sm text-slate-700 dark:text-slate-200 rounded-md hover:bg-slate-100 dark:hover:bg-slate-600 cursor-pointer">
                                         ${icons.WhatsApp("w-5 h-5 text-green-500")}
                                         <span>Hubungi via WhatsApp</span>
+                                    </a>
                                     </a>
                                     <a href="mailto:cloudsunnah.message@gmail.com" class="flex items-center gap-3 w-full px-3 py-2 text-sm text-slate-700 dark:text-slate-200 rounded-md hover:bg-slate-100 dark:hover:bg-slate-600">
                                         ${icons.Mail("w-5 h-5 text-sky-500")}
@@ -9786,6 +9787,24 @@
                             cityInput.value = cityName;
                             hideCityDropdown();
                             return getPrayerTimes(cityName);
+                        }
+                    }
+                    // Menangani klik pada link WhatsApp untuk memicu Web Share API
+                    if (target.closest('#whatsapp-btn')) {
+                        playClickSound();
+                        const waUrl = 'https://wa.me/6285648545159';
+                        const waMessage = 'Assalamualaikum, Cloud Sunnah. Saya ingin bertanya mengenai aplikasi Muslimah.';
+
+                        // Cek apakah Web Share API didukung
+                        if (navigator.share) {
+                            navigator.share({
+                                title: 'Hubungi Cloud Sunnah',
+                                text: waMessage,
+                                url: waUrl
+                            }).catch(err => console.error('Error sharing:', err));
+                        } else {
+                            // Fallback untuk browser/webview lama: buka di tab baru
+                            window.open(waUrl, '_blank', 'noopener,noreferrer');
                         }
                     }
 

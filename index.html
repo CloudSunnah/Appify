@@ -9790,23 +9790,22 @@
                         }
                     }
                     // Menangani klik pada link WhatsApp untuk memicu Web Share API
-                    if (target.closest('#whatsapp-btn')) {
-                        playClickSound();
-                        const waUrl = 'https://wa.me/6285648545159';
-                        const waMessage = 'Assalamualaikum, Cloud Sunnah. Saya ingin bertanya mengenai aplikasi Muslimah.';
+					if (target.closest('#whatsapp-btn')) {
+						playClickSound();
+						
+						// 1. Siapkan nomor WA (gunakan format internasional tanpa + atau 0 di depan)
+						const waNumber = '6285648545159';
+						
+						// 2. Siapkan pesan default
+						const waMessage = 'Assalamualaikum, Cloud Sunnah. Saya ingin bertanya mengenai aplikasi Muslimah.';
+						
+						// 3. Buat URL dengan skema whatsapp:// dan pastikan pesan di-encode
+						const waUrl = `whatsapp://send?phone=${waNumber}&text=${encodeURIComponent(waMessage)}`;
+						
+						// 4. Perintahkan browser/webview untuk membuka URL ini
+						window.location.href = waUrl;
+					}
 
-                        // Cek apakah Web Share API didukung
-                        if (navigator.share) {
-                            navigator.share({
-                                title: 'Hubungi Cloud Sunnah',
-                                text: waMessage,
-                                url: waUrl
-                            }).catch(err => console.error('Error sharing:', err));
-                        } else {
-                            // Fallback untuk browser/webview lama: buka di tab baru
-                            window.open(waUrl, '_blank', 'noopener,noreferrer');
-                        }
-                    }
 
                     // Tanya Cloud
                     if (target.closest('#new-chat-btn')) return handleNewChat();
